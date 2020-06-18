@@ -76,6 +76,8 @@ for module_name in ALL_MODULES:
     else:
         raise Exception("Can't have two modules with the same name! Please change one")
         
+  chat = await event.get_chat()
+  if event.is_private:
     if chat.id == 557639247:
         print(PM_START_TEXT)
     else:
