@@ -22,7 +22,7 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} ഇപ്പോൾ കീബോർഡിൽ നിന്നും അകലെ ആണ് ! ".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} ഇപ്പോൾ അങ്ങ് ദൂരെ ആണ് ! ".format(update.effective_user.first_name))
 
 
 @run_async
@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} ഇപ്പോൾ കീബോർഡിൽ തിരിച്ചു വന്നു !".format(update.effective_user.first_name))
+        update.effective_message.reply_text("{} ഇപ്പോൾ തിരിച്ചു വന്നു !".format(update.effective_user.first_name))
 
 
 @run_async
