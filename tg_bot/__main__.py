@@ -75,13 +75,6 @@ for module_name in ALL_MODULES:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
         raise Exception("Can't have two modules with the same name! Please change one")
-        
-  chat = await event.get_chat()
-  if event.is_private:
-    if chat.id == 557639247:
-        print(PM_START_TEXT)
-    else:
-        print("ഇപ്പം കിട്ടും നോക്കി ഇരുന്നോ")
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
