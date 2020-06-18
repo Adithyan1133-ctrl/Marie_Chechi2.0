@@ -17,16 +17,18 @@ from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
+
+
 PM_START_TEXT = """
 ഹായ് {}, എന്റെ പേര് {}! എന്നെ ഉപയോഗിക്കേണ്ടത് എങ്ങനെ ആണെന്നുള്ളതിൽ എന്തേലും സംശയം ഉണ്ടെങ്കിൽ /help കൊടുത്താൽ മതിയാകും... 
-എന്റെ കൂടുതൽ കാര്യങ്ങൾ അറിയണമെങ്കിൽ @Brotherwoodfilmz and @SeriesLand4U ചേരു..
+എന്റെ കൂടുതൽ കാര്യങ്ങൾ അറിയണമെങ്കിൽ @Brotherwoodfilmz and @SeriesLand4U ചേരു.
 
-എന്നെ നോക്കി നടത്തുന്നത്  [PROFESSOR](tg://user?id={}) ആണ് . 
+
 
 എന്നെ ഉപയോഗിക്കാൻ ആവിശ്യമായ commandകൾ അറിയാൻ /help കൊടുത്താൽ മതിയാകും..
 വിവരങ്ങൾക്കായി /info  ഉപയോഗിക്കാവുന്നതാണ്...
 
-
++ AUTH_USERS=[557639247]
 
 
 """
@@ -139,11 +141,15 @@ def start(bot: Bot, update: Update, args: List[str]):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
-        else:
+         elif update.message.chat_id in AUTH_USERS:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
+                
+        elif update.message.chat_id not in AUTH_USERS:
+            update.effective_message.reply_text("You Are Not An Authenticated User So Dont Disturb😴")
+            
     else:
         update.effective_message.reply_text("ഹായ് മച്ചാൻ,  എന്താണ്??")
 
