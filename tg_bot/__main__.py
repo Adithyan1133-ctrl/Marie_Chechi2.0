@@ -17,7 +17,7 @@ from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
-AUTH_USERS=[557639247]
+AUTH_USERS=[557639247,1223757245]
 
 PM_START_TEXT = """
 ഹായ് {}, എന്റെ പേര് {}! എന്നെ ഉപയോഗിക്കേണ്ടത് എങ്ങനെ ആണെന്നുള്ളതിൽ എന്തേലും സംശയം ഉണ്ടെങ്കിൽ /help കൊടുത്താൽ മതിയാകും... 
@@ -147,7 +147,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN)
 
         elif update.message.chat_id not in AUTH_USERS:
-            update.effective_message.reply_text("You Are Not An Authenticated User So Dont Disturb😴")
+            update.effective_message.reply_text("നോക്കി ഇരുന്നോ ഇപ്പം കിട്ടും...വേണേൽ ഞങ്ങടെ ചാനലിൽ ചേർന്നോളൂ @Brotherwoodfilmz | @SeriesLand4U")
         
     else:
         update.effective_message.reply_text("ഹായ് മച്ചാൻ,  എന്താണ്??")
